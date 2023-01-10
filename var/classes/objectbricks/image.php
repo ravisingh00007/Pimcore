@@ -198,7 +198,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
   array (
     0 => 
     array (
-      'classname' => 'Fashion',
+      'classname' => 'Clothings',
       'fieldname' => 'image',
     ),
   ),
