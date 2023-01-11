@@ -12,7 +12,7 @@
  * - price [input]
  * - color [rgbaColor]
  * - discount [slider]
- * - image [objectbricks]
+ * - image [image]
  * - pattern_and_design [select]
  * - fit [select]
  * - seller [manyToOneRelation]
@@ -24,7 +24,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Clothings',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1673282767,
+   'modificationDate' => 1673369182,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -535,7 +535,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'children' => 
             array (
               0 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Objectbricks::__set_state(array(
+              Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
                  'name' => 'image',
                  'title' => 'Image',
                  'tooltip' => '',
@@ -546,7 +546,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
-                 'fieldtype' => 'objectbricks',
+                 'fieldtype' => 'image',
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,
@@ -554,12 +554,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'allowedTypes' => 
-                array (
-                  0 => 'image',
-                ),
-                 'maxItems' => NULL,
-                 'border' => false,
+                 'width' => '',
+                 'height' => '',
+                 'uploadPath' => '',
               )),
             ),
              'locked' => false,
