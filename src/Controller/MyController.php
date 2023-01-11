@@ -7,7 +7,6 @@ use Pimcore\Model\DataObject\Clothings;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Pimcore\Model\DataObject\Footwear;
 
 class MyController extends FrontendController
 {
@@ -25,12 +24,16 @@ class MyController extends FrontendController
     }
 
 
-    #[Route("/clothing" ,methods:["GET"] ,name:"clothing")]
+    #[Route("/clothing" ,methods:["GET" ,"POST"] ,name:"clothing")]
     public function clothing(Request $request){
-        return $this->render("default/clothing.html.twig");
+
+        $boy1= Clothings::getById(38);
+        $boy1 ->getPrice("price");
+        $boy1 ->getImage("image");
+        
+        return $this->render("default/clothing.html.twig",["object"=>$boy1]);
     }
     
-
     #[Route("/beauty" ,methods:["GET"] ,name:"beauty")]
     public function beauty(Request $request){
         return $this->render("default/beauty.html.twig");
