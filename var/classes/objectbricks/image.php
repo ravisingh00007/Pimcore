@@ -96,25 +96,5 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
   ),
    'classDefinitions' => 
   array (
-    0 => 
-    array (
-      'classname' => 'Clothings',
-      'fieldname' => 'image',
-    ),
-    1 => 
-    array (
-      'classname' => 'Beauty',
-      'fieldname' => 'image',
-    ),
-    2 => 
-    array (
-      'classname' => 'Footwear',
-      'fieldname' => 'image',
-    ),
-    3 => 
-    array (
-      'classname' => 'Electronics',
-      'fieldname' => 'image',
-    ),
   ),
 ));

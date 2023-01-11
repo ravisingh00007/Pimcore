@@ -12,7 +12,7 @@
  * - price [numeric]
  * - discount [slider]
  * - seller [manyToOneRelation]
- * - image [objectbricks]
+ * - image [image]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -21,7 +21,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Beauty',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1673417780,
+   'modificationDate' => 1673423183,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -481,7 +481,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'children' => 
             array (
               0 => 
-              Pimcore\Model\DataObject\ClassDefinition\Data\Objectbricks::__set_state(array(
+              Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
                  'name' => 'image',
                  'title' => 'Image',
                  'tooltip' => '',
@@ -492,7 +492,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'style' => '',
                  'permissions' => NULL,
                  'datatype' => 'data',
-                 'fieldtype' => 'objectbricks',
+                 'fieldtype' => 'image',
                  'relationType' => false,
                  'invisible' => false,
                  'visibleGridView' => false,
@@ -500,12 +500,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'allowedTypes' => 
-                array (
-                  0 => 'image',
-                ),
-                 'maxItems' => NULL,
-                 'border' => false,
+                 'width' => '',
+                 'height' => '',
+                 'uploadPath' => '',
               )),
             ),
              'locked' => false,

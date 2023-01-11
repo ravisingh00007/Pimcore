@@ -104,6 +104,16 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
                 'key' => 'Campus',
                 'value' => 'Campus',
               ),
+              8 => 
+              array (
+                'key' => 'Asian',
+                'value' => 'Asian',
+              ),
+              9 => 
+              array (
+                'key' => '',
+                'value' => '',
+              ),
             ),
              'width' => '',
              'defaultValue' => '',

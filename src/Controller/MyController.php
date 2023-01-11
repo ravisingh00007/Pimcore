@@ -7,40 +7,30 @@ use Pimcore\Model\DataObject\Clothings;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Pimcore\Model\DataObject\Footwear;
 
 class MyController extends FrontendController
 {
 
-
-
     #[Route("/home" ,methods:["GET"] ,name:"homepage")]
-    public function Welcome(Request $request){
-       
-
-
+    public function welcomeAction(Request $request){
         return $this->render("default/home.html.twig");
     }
 
 
-
-
-
     #[Route("/footwear" ,methods:["GET"] ,name:"footwear")]
     public function footwear(Request $request){
-        return $this->render("default/footwear.html.twig");
+        $footwear = new Footwear\Listing();
+        return $this->render("default/footwear.html.twig", ['footwear'=> $footwear]);
     }
 
 
     #[Route("/clothing" ,methods:["GET"] ,name:"clothing")]
     public function clothing(Request $request){
-
-        $boy1= Clothings::getById(38);
-        $boy1 ->getPrice("price");
-        $boy1 ->getImage("image");
-        
-        return $this->render("default/clothing.html.twig",["object"=>$boy1]);
+        return $this->render("default/clothing.html.twig");
     }
     
+
     #[Route("/beauty" ,methods:["GET"] ,name:"beauty")]
     public function beauty(Request $request){
         return $this->render("default/beauty.html.twig");
@@ -55,7 +45,5 @@ class MyController extends FrontendController
     public function feedback(Request $request){
         return $this->render("default/feedback.html.twig");
     }
-
-
 
 }
