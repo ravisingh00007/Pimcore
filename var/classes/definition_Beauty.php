@@ -9,7 +9,9 @@
  * - skincare [objectbricks]
  * - haircare [objectbricks]
  * - fragance [objectbricks]
- * - ItemQuantity [numeric]
+ * - price [numeric]
+ * - discount [slider]
+ * - seller [manyToOneRelation]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -18,7 +20,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Beauty',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1672903213,
+   'modificationDate' => 1673287213,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -84,7 +86,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               0 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Objectbricks::__set_state(array(
                  'name' => 'makeup',
-                 'title' => 'Makeup',
+                 'title' => '',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -138,7 +140,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               0 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Objectbricks::__set_state(array(
                  'name' => 'skincare',
-                 'title' => 'Skincare',
+                 'title' => '',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -192,7 +194,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               0 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Objectbricks::__set_state(array(
                  'name' => 'haircare',
-                 'title' => 'Haircare',
+                 'title' => '',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -211,6 +213,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                 ),
                  'allowedTypes' => 
                 array (
+                  0 => 'HairCare',
                 ),
                  'maxItems' => NULL,
                  'border' => false,
@@ -245,7 +248,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               0 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Objectbricks::__set_state(array(
                  'name' => 'fragance',
-                 'title' => 'Fragance',
+                 'title' => '',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -264,6 +267,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                 ),
                  'allowedTypes' => 
                 array (
+                  0 => 'Fragnance',
                 ),
                  'maxItems' => NULL,
                  'border' => false,
@@ -281,35 +285,184 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'labelAlign' => 'left',
           )),
           4 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
-             'name' => 'ItemQuantity',
-             'title' => 'Item Quantity',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
+          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+             'name' => 'Layout',
+             'type' => NULL,
+             'region' => NULL,
+             'title' => 'Price',
+             'width' => '',
+             'height' => '',
+             'collapsible' => false,
+             'collapsed' => false,
+             'bodyStyle' => '',
+             'datatype' => 'layout',
              'permissions' => NULL,
-             'datatype' => 'data',
-             'fieldtype' => 'numeric',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
+             'children' => 
+            array (
+              0 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
+                 'name' => 'price',
+                 'title' => 'Price',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'fieldtype' => 'numeric',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'width' => '',
+                 'defaultValue' => NULL,
+                 'integer' => false,
+                 'unsigned' => false,
+                 'minValue' => NULL,
+                 'maxValue' => NULL,
+                 'unique' => false,
+                 'decimalSize' => NULL,
+                 'decimalPrecision' => NULL,
+                 'defaultValueGenerator' => '',
+              )),
+            ),
+             'locked' => false,
              'blockedVarsForExport' => 
             array (
             ),
-             'width' => 100,
-             'defaultValue' => NULL,
-             'integer' => false,
-             'unsigned' => false,
-             'minValue' => NULL,
-             'maxValue' => NULL,
-             'unique' => false,
-             'decimalSize' => NULL,
-             'decimalPrecision' => NULL,
-             'defaultValueGenerator' => '',
+             'fieldtype' => 'panel',
+             'layout' => NULL,
+             'border' => false,
+             'icon' => '',
+             'labelWidth' => 0,
+             'labelAlign' => 'left',
+          )),
+          5 => 
+          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+             'name' => 'Layout',
+             'type' => NULL,
+             'region' => NULL,
+             'title' => 'Discount',
+             'width' => '',
+             'height' => '',
+             'collapsible' => false,
+             'collapsed' => false,
+             'bodyStyle' => '',
+             'datatype' => 'layout',
+             'permissions' => NULL,
+             'children' => 
+            array (
+              0 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Slider::__set_state(array(
+                 'name' => 'discount',
+                 'title' => 'Discount',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'fieldtype' => 'slider',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'width' => '',
+                 'height' => '',
+                 'minValue' => 10.0,
+                 'maxValue' => 60.0,
+                 'vertical' => false,
+                 'increment' => NULL,
+                 'decimalPrecision' => NULL,
+              )),
+            ),
+             'locked' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'fieldtype' => 'panel',
+             'layout' => NULL,
+             'border' => false,
+             'icon' => '',
+             'labelWidth' => 0,
+             'labelAlign' => 'left',
+          )),
+          6 => 
+          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+             'name' => 'Layout',
+             'type' => NULL,
+             'region' => NULL,
+             'title' => 'Seller',
+             'width' => '',
+             'height' => '',
+             'collapsible' => false,
+             'collapsed' => false,
+             'bodyStyle' => '',
+             'datatype' => 'layout',
+             'permissions' => NULL,
+             'children' => 
+            array (
+              0 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\ManyToOneRelation::__set_state(array(
+                 'name' => 'seller',
+                 'title' => 'Seller',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'fieldtype' => 'manyToOneRelation',
+                 'relationType' => true,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'classes' => 
+                array (
+                  0 => 
+                  array (
+                    'classes' => 'Seller',
+                  ),
+                ),
+                 'pathFormatterClass' => '',
+                 'width' => '',
+                 'assetUploadPath' => '',
+                 'objectsAllowed' => true,
+                 'assetsAllowed' => false,
+                 'assetTypes' => 
+                array (
+                ),
+                 'documentsAllowed' => false,
+                 'documentTypes' => 
+                array (
+                ),
+              )),
+            ),
+             'locked' => false,
+             'blockedVarsForExport' => 
+            array (
+            ),
+             'fieldtype' => 'panel',
+             'layout' => NULL,
+             'border' => false,
+             'icon' => '',
+             'labelWidth' => 0,
+             'labelAlign' => 'left',
           )),
         ),
          'locked' => false,

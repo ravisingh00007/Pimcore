@@ -140,13 +140,8 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
   array (
     0 => 
     array (
-      'classname' => 'Fashion',
+      'classname' => 'Clothings',
       'fieldname' => 'Size',
-    ),
-    1 => 
-    array (
-      'classname' => 'Beauty',
-      'fieldname' => NULL,
     ),
   ),
 ));

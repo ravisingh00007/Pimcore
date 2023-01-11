@@ -2,17 +2,17 @@
 
 /**
  * Fields Summary:
- * - faceCategory [select]
- * - eyeCategory [select]
- * - format [select]
- * - lipCategory [select]
- * - Brand [select]
- * - color [rgbaColor]
+ * - itemForm [select]
+ * - brand [select]
+ * - cateogory [select]
+ * - specialFeatures [select]
+ * - shampoobrand [select]
+ * - benefit [select]
  */
 
 return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
    'dao' => NULL,
-   'key' => 'makeup',
+   'key' => 'HairCare',
    'parentClass' => '',
    'implementsInterfaces' => '',
    'title' => '',
@@ -52,7 +52,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'name' => 'Layout',
              'type' => NULL,
              'region' => NULL,
-             'title' => 'Face',
+             'title' => 'Hair Oil',
              'width' => '',
              'height' => '',
              'collapsible' => false,
@@ -64,8 +64,8 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
             array (
               0 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
-                 'name' => 'faceCategory',
-                 'title' => 'FaceCategory',
+                 'name' => 'itemForm',
+                 'title' => 'Item Form',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -86,28 +86,89 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
                 array (
                   0 => 
                   array (
-                    'key' => 'Bronzer',
-                    'value' => 'Bronzer',
+                    'key' => 'Cream',
+                    'value' => 'Cream',
+                    'id' => 'extModel4900-1',
                   ),
                   1 => 
                   array (
-                    'key' => 'Primer',
-                    'value' => 'Primer',
+                    'key' => 'Gel',
+                    'value' => 'Gel',
+                    'id' => 'extModel4900-2',
                   ),
                   2 => 
                   array (
-                    'key' => 'Concealer',
-                    'value' => 'Concealer',
+                    'key' => 'Liquid',
+                    'value' => 'Liquid',
+                    'id' => 'extModel4900-3',
                   ),
                   3 => 
                   array (
-                    'key' => 'Sindoor',
-                    'value' => 'Sindoor',
+                    'key' => 'Aerosol',
+                    'value' => 'Aerosol',
+                    'id' => 'extModel4900-4',
                   ),
                   4 => 
                   array (
-                    'key' => 'Blushes',
-                    'value' => 'Blushes',
+                    'key' => 'Powder',
+                    'value' => 'Powder',
+                    'id' => 'extModel4900-5',
+                  ),
+                ),
+                 'width' => '',
+                 'defaultValue' => '',
+                 'optionsProviderClass' => '',
+                 'optionsProviderData' => '',
+                 'columnLength' => 190,
+                 'dynamicOptions' => false,
+                 'defaultValueGenerator' => '',
+              )),
+              1 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
+                 'name' => 'brand',
+                 'title' => 'Brand',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'fieldtype' => 'select',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'options' => 
+                array (
+                  0 => 
+                  array (
+                    'key' => 'Indulekha',
+                    'value' => 'Indulekha',
+                  ),
+                  1 => 
+                  array (
+                    'key' => 'Parachute',
+                    'value' => 'Parachute',
+                  ),
+                  2 => 
+                  array (
+                    'key' => 'Kesh King',
+                    'value' => 'Kesh King',
+                  ),
+                  3 => 
+                  array (
+                    'key' => 'Dabur',
+                    'value' => 'Dabur',
+                  ),
+                  4 => 
+                  array (
+                    'key' => 'Mamaearth',
+                    'value' => 'Mamaearth',
                   ),
                 ),
                  'width' => '',
@@ -135,7 +196,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'name' => 'Layout',
              'type' => NULL,
              'region' => NULL,
-             'title' => 'Eye',
+             'title' => 'Shampoo & Conditioner',
              'width' => '',
              'height' => '',
              'collapsible' => false,
@@ -147,8 +208,8 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
             array (
               0 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
-                 'name' => 'eyeCategory',
-                 'title' => 'EyeCategory',
+                 'name' => 'cateogory',
+                 'title' => 'category',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -169,28 +230,28 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
                 array (
                   0 => 
                   array (
-                    'key' => 'Eyeliner',
-                    'value' => 'Eyeliner',
+                    'key' => 'Cream',
+                    'value' => 'Cream',
                   ),
                   1 => 
                   array (
-                    'key' => 'Kajal',
-                    'value' => 'Kajal',
+                    'key' => 'Gel',
+                    'value' => 'Gel',
                   ),
                   2 => 
                   array (
-                    'key' => 'Mascara',
-                    'value' => 'Mascara',
+                    'key' => 'Liquid',
+                    'value' => 'Liquid',
                   ),
                   3 => 
                   array (
-                    'key' => 'Eye Lashes',
-                    'value' => 'Eye Lashes',
+                    'key' => 'Aerosol',
+                    'value' => 'Aerosol',
                   ),
                   4 => 
                   array (
-                    'key' => 'Eye Shadow',
-                    'value' => 'Eye Shadow',
+                    'key' => 'Powder',
+                    'value' => 'Powder',
                   ),
                 ),
                  'width' => '',
@@ -203,8 +264,8 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
               )),
               1 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
-                 'name' => 'format',
-                 'title' => 'Format',
+                 'name' => 'specialFeatures',
+                 'title' => 'Special Features',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -225,28 +286,23 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
                 array (
                   0 => 
                   array (
-                    'key' => 'Crayon',
-                    'value' => 'Crayon',
+                    'key' => 'Ayurvedic',
+                    'value' => 'Ayurvedic',
                   ),
                   1 => 
                   array (
-                    'key' => 'Pencil',
-                    'value' => 'Pencil',
+                    'key' => 'Organic',
+                    'value' => 'Organic',
                   ),
                   2 => 
                   array (
-                    'key' => 'Stick',
-                    'value' => 'Stick',
+                    'key' => 'Scented',
+                    'value' => 'Scented',
                   ),
                   3 => 
                   array (
-                    'key' => 'Striped',
-                    'value' => 'Striped',
-                  ),
-                  4 => 
-                  array (
-                    'key' => 'Gel',
-                    'value' => 'Gel',
+                    'key' => 'Travel Size',
+                    'value' => 'Travel Size',
                   ),
                 ),
                  'width' => '',
@@ -257,37 +313,10 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
                  'dynamicOptions' => false,
                  'defaultValueGenerator' => '',
               )),
-            ),
-             'locked' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'fieldtype' => 'panel',
-             'layout' => NULL,
-             'border' => false,
-             'icon' => '',
-             'labelWidth' => 0,
-             'labelAlign' => 'left',
-          )),
-          2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-             'name' => 'Layout',
-             'type' => NULL,
-             'region' => NULL,
-             'title' => 'Lip',
-             'width' => '',
-             'height' => '',
-             'collapsible' => false,
-             'collapsed' => false,
-             'bodyStyle' => '',
-             'datatype' => 'layout',
-             'permissions' => NULL,
-             'children' => 
-            array (
-              0 => 
+              2 => 
               Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
-                 'name' => 'lipCategory',
-                 'title' => 'LipCategory',
+                 'name' => 'shampoobrand',
+                 'title' => 'Shampoobrand',
                  'tooltip' => '',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -308,28 +337,84 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
                 array (
                   0 => 
                   array (
-                    'key' => 'LipBalm',
-                    'value' => 'LipBalm',
+                    'key' => 'Loreal',
+                    'value' => 'Loreal',
                   ),
                   1 => 
                   array (
-                    'key' => 'Lipstick',
-                    'value' => 'Lipstick',
+                    'key' => 'Sunsilk',
+                    'value' => 'Sunsilk',
                   ),
                   2 => 
                   array (
-                    'key' => 'LipLiner',
-                    'value' => 'LipLiner',
+                    'key' => 'Clinic Plus',
+                    'value' => 'Clinic Plus',
                   ),
                   3 => 
                   array (
-                    'key' => 'LipStain',
-                    'value' => 'LipStain',
+                    'key' => 'Dove',
+                    'value' => 'Dove',
                   ),
                   4 => 
                   array (
-                    'key' => 'Lip glosses',
-                    'value' => 'Lip glosses',
+                    'key' => 'TRESemme',
+                    'value' => 'TRESemme',
+                  ),
+                ),
+                 'width' => '',
+                 'defaultValue' => '',
+                 'optionsProviderClass' => '',
+                 'optionsProviderData' => '',
+                 'columnLength' => 190,
+                 'dynamicOptions' => false,
+                 'defaultValueGenerator' => '',
+              )),
+              3 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
+                 'name' => 'benefit',
+                 'title' => 'Benefit',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'fieldtype' => 'select',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'options' => 
+                array (
+                  0 => 
+                  array (
+                    'key' => 'Nourishing',
+                    'value' => 'Nourishing',
+                  ),
+                  1 => 
+                  array (
+                    'key' => 'Anti-dandraff',
+                    'value' => 'Anti-dandraff',
+                  ),
+                  2 => 
+                  array (
+                    'key' => 'Moisturising',
+                    'value' => 'Moisturisig',
+                  ),
+                  3 => 
+                  array (
+                    'key' => 'Softening',
+                    'value' => 'Softening',
+                  ),
+                  4 => 
+                  array (
+                    'key' => 'Strengthing',
+                    'value' => 'Strengthing',
                   ),
                 ),
                  'width' => '',
@@ -361,94 +446,6 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'border' => false,
          'tabPosition' => NULL,
       )),
-      1 => 
-      Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
-         'name' => 'Brand',
-         'title' => 'Brand',
-         'tooltip' => '',
-         'mandatory' => false,
-         'noteditable' => false,
-         'index' => false,
-         'locked' => false,
-         'style' => '',
-         'permissions' => NULL,
-         'datatype' => 'data',
-         'fieldtype' => 'select',
-         'relationType' => false,
-         'invisible' => false,
-         'visibleGridView' => false,
-         'visibleSearch' => false,
-         'blockedVarsForExport' => 
-        array (
-        ),
-         'options' => 
-        array (
-          0 => 
-          array (
-            'key' => 'LakeMe',
-            'value' => 'LakeMe',
-          ),
-          1 => 
-          array (
-            'key' => 'ColorBar',
-            'value' => 'ColorBar',
-          ),
-          2 => 
-          array (
-            'key' => 'Biotique',
-            'value' => 'Biotique',
-          ),
-          3 => 
-          array (
-            'key' => 'Vedy',
-            'value' => 'Vedy',
-          ),
-          4 => 
-          array (
-            'key' => 'Pond\'s',
-            'value' => 'Pond\'s',
-          ),
-          5 => 
-          array (
-            'key' => 'Swiss beauty',
-            'value' => 'Swiss beauty',
-          ),
-          6 => 
-          array (
-            'key' => '',
-            'value' => '',
-          ),
-        ),
-         'width' => '',
-         'defaultValue' => '',
-         'optionsProviderClass' => '',
-         'optionsProviderData' => '',
-         'columnLength' => 190,
-         'dynamicOptions' => false,
-         'defaultValueGenerator' => '',
-      )),
-      2 => 
-      Pimcore\Model\DataObject\ClassDefinition\Data\RgbaColor::__set_state(array(
-         'name' => 'color',
-         'title' => 'Color',
-         'tooltip' => '',
-         'mandatory' => false,
-         'noteditable' => false,
-         'index' => false,
-         'locked' => false,
-         'style' => '',
-         'permissions' => NULL,
-         'datatype' => 'data',
-         'fieldtype' => 'rgbaColor',
-         'relationType' => false,
-         'invisible' => false,
-         'visibleGridView' => false,
-         'visibleSearch' => false,
-         'blockedVarsForExport' => 
-        array (
-        ),
-         'width' => '',
-      )),
     ),
      'locked' => false,
      'blockedVarsForExport' => 
@@ -470,7 +467,7 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
     0 => 
     array (
       'classname' => 'Beauty',
-      'fieldname' => 'makeup',
+      'fieldname' => 'haircare',
     ),
   ),
 ));
