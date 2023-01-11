@@ -1,28 +1,25 @@
 {% include "default/header.html.twig" %}
 
-<div class="container mt-3" >
-<div class="card" style="width: 18rem;">
-  <img src="{{object.getImage()}} " class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
+<div class="container my-5">
+	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
+		{% for cloth in object %}
+			<div class="col">
+				<div class="card p-2" style="width: 20rem;">
+					<img src="{{cloth.getImage()}} " class="card-img-top" style="height:302px;weight: 302px;">
+                    <center>
+					<div class="card-body">
+						<h5 class="card-title">{{cloth.getBrand().getBrand().getBrand()}}</h5>
+                        <p>{{cloth.getDescription()}}</p>
+                        <h5 class="card-title"> &#8377;{{cloth.getPrice() - ((cloth.getPrice()*cloth.getDiscount())/100)}} <span style="font-size:15px;"><span style="text-decoration:line-through;">{{cloth.getPrice()}}</span> ({{cloth.getDiscount()}}% off )</span></h5> 
+					
+					
+						<button class="card-link btn btn-success" style="text-decoration:none;">Buy Now</button>
+                        <button class="card-link btn btn-success" style="text-decoration:none;">Add To Cart</button>
+					</div>
+                    </center>
+				</div>
+			</div>
+            {% endfor %}
+		</div>	
 </div>
-</div>
-
-
-
-{# {{object.getPrice()}} #}
-{# {{ object.getImage() }}  #}
-
-
 {% include "default/footer.html.twig" %}
