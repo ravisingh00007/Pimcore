@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\DataObject\Clothings\Listing;
+use Pimcore\Model\Asset\MetaData\ClassDefinition\Data\DataObject;
+use Pimcore\Model\DataObject\FeedClass;
 
 class MyController extends FrontendController
 {
@@ -56,7 +58,31 @@ class MyController extends FrontendController
     public function feedback(Request $request){
         return $this->render("default/feedback.html.twig");
     }
+    
+    #[Route("/handleFeedback" , methods:["POST","GET"], name:"HandleFeedback")]
+    public function handleFeed(Request $request){
+       
+        $data = json_decode($request->getContent(), true);
+        $name = $data['name'];
+        $email = $data['email'];
+        $address = $data['address'];
+        $suggestion = $data['suggestion'];
 
+        $object = new FeedClass();
+        $object->setKey($name);
+        $object ->setParentId(42);
+
+        $object->setName($name);
+        $object->setEmail($email);
+        $object->setAddress($address);
+        $object->setSuggestion($suggestion);
+        $object->setPublished(true);
+
+        $object->save();
+    
+        return $this->json(['status' => 'object added!']);
+
+    }
 
 
 }
