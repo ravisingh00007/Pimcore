@@ -7,9 +7,7 @@ use Pimcore\Model\DataObject\Clothings;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Pimcore\Model\DataObject\Footwear;
-use Pimcore\Model\DataObject\Beauty;
-use Pimcore\Model\DataObject\Objectbrick\Data\Makeup;
+use App\Controller\DataObject\Clothings\Listing;
 
 class MyController extends FrontendController
 {
@@ -48,5 +46,7 @@ class MyController extends FrontendController
     public function feedback(Request $request){
         return $this->render("default/feedback.html.twig");
     }
+
+
 
 }
