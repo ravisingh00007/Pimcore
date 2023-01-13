@@ -10,11 +10,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\DataObject\Clothings\Listing;
 use Pimcore\Model\Asset\MetaData\ClassDefinition\Data\DataObject;
 use Pimcore\Model\DataObject\FeedClass;
+use App\Controller\EntityManagerInterface;
 
 class MyController extends FrontendController
 {
-
-
+ 
 
     #[Route("/home" ,methods:["GET"] ,name:"homepage")]
     public function Welcome(Request $request){
@@ -59,14 +59,18 @@ class MyController extends FrontendController
         return $this->render("default/feedback.html.twig");
     }
     
-    #[Route("/handleFeedback" , methods:["POST","GET"], name:"HandleFeedback")]
+    #[Route("/handleFeedback" , methods:["POST"], name:"HandleFeedback")]
     public function handleFeed(Request $request){
+        $name = $request->getContent().['name'];
+        $email = $request->getContent().['email'];
+        $address = $request->getContent().['address'];
+        $suggestion = $request->getContent().[];
        
-        $data = json_decode($request->getContent(), true);
-        $name = $data['name'];
-        $email = $data['email'];
-        $address = $data['address'];
-        $suggestion = $data['suggestion'];
+        // $data = json_decode($request->getContent(), true);
+        // $name = $data['name'];
+        // $email = $data['email'];
+        // $address = $data['address'];
+        // $suggestion = $data['suggestion'];
 
         $object = new FeedClass();
         $object->setKey($name);
