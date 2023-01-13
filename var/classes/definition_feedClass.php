@@ -17,7 +17,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'feedClass',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1673508980,
+   'modificationDate' => 1673526767,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -123,8 +123,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'regexFlags' => 
             array (
             ),
-             'unique' => NULL,
-             'showCharCount' => NULL,
+             'unique' => false,
+             'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
           2 => 
@@ -210,7 +210,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
   )),
    'icon' => '',
    'previewUrl' => '',
-   'group' => '',
+   'group' => 'Ecommerce Webpage',
    'showAppLoggerTab' => false,
    'linkGeneratorReference' => '',
    'previewGeneratorReference' => '',

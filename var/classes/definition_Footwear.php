@@ -9,6 +9,7 @@
  * - sku [input]
  * - selectOtherFeatures [select]
  * - select [objectbricks]
+ * - gender [select]
  * - price [numeric]
  * - discount [slider]
  * - pattern [select]
@@ -24,7 +25,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Footwear',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1673514806,
+   'modificationDate' => 1673603486,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -293,6 +294,57 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                 ),
                  'maxItems' => NULL,
                  'border' => false,
+              )),
+              2 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
+                 'name' => 'gender',
+                 'title' => 'Gender',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'fieldtype' => 'select',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'options' => 
+                array (
+                  0 => 
+                  array (
+                    'key' => 'Men ',
+                    'value' => 'Men ',
+                  ),
+                  1 => 
+                  array (
+                    'key' => 'Women',
+                    'value' => 'Women',
+                  ),
+                  2 => 
+                  array (
+                    'key' => 'Boy kids',
+                    'value' => 'Boy kids',
+                  ),
+                  3 => 
+                  array (
+                    'key' => 'Girl kids',
+                    'value' => 'Girl kids',
+                  ),
+                ),
+                 'width' => '',
+                 'defaultValue' => '',
+                 'optionsProviderClass' => '',
+                 'optionsProviderData' => '',
+                 'columnLength' => 190,
+                 'dynamicOptions' => false,
+                 'defaultValueGenerator' => '',
               )),
             ),
              'locked' => false,

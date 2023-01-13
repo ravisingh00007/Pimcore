@@ -9,17 +9,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DefaultController extends FrontendController
+class FilterController extends FrontendController
 {
-    /**
-     * @param Request $request
-     * @return Response
-     */
-    public function defaultAction(Request $request): Response
-    { 
-        return $this->render('default/default.html.twig');
-    }
 
-   
-        
+    // #[Route("/men", methods:["GET"] , name:"filterMen")]
+    // public function menFilter(Request $request){
+    //    $object = new  
+    // }
 }

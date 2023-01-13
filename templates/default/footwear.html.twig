@@ -1,14 +1,57 @@
 {% include "default/header.html.twig" %}
+<style>
+	.filterImg {
+		height: 300px;
+		width: 300px;
+		border-radius: 50%;
+	}
+</style>
+<div class="container d-flex  justify-content-sm-between">
+  
+		<div>
+			<a href="/men">
+				<img class="filterImg" src="https://m.media-amazon.com/images/G/31/img21/shoes/Jupiter22/Halo/03._CB609936802_.jpg" alt="">
+			</a>
+			 
+		</div>	
+	<div>
+		<a href="/women">
+			<img class="filterImg" src="https://m.media-amazon.com/images/G/31/img21/shoes/XCM/Halo/footwear_womens__._CB637127133_.jpg" alt="">
+		</a>
+	</div>
+	  
+	<div>
+		<a href="/kids">
+			<img class="filterImg" src="https://m.media-amazon.com/images/G/31/img21/shoes/XCM/Halo/kids._CB637127133_.jpg" alt="">
+		</a>
+	</div>
+	4
+</div>
+<div class="container d-flex flex-row ">
+<div style="width:30%; text-align:center;">
+Men
+</div>
+<div style="width:30%; text-align:center;">
+Women
+</div>
+<div style="width:30%;text-align:center;">
+Kids
+</div>
+</div>
+
 
 <div class="container my-5">
-	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">​​​​
+	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
+		​​​​
 		{% for object in footwear %}
 			<div class="col">
 				<div class="card p-2" style="width: 25rem; height:30rem;">
-                    <img src= "{{ object.getImage() }}" class= "card-img-top" style="height:20rem;"> 
+					<img src="{{ object.getImage() }}" class="card-img-top" style="height:20rem;">
 					<center>
-						<div class="card-body">
-                            <h5 class="card-title">
+						<div
+							class="card-body">
+							{# <h5> {{category[0]}} </h5> #}
+							<h5 class="card-title">
 								{% if object.getSelectOtherFeatures()=='FootwearBrand' %}
 									<p class="card-text">
 										{{ object.getSelect().getFootwearBrand().getBrand}}
@@ -16,7 +59,7 @@
 									</p>
 								{% endif %}
 							</h5>
-                            <h5 class="card-title">&#8377;
+							<h5 class="card-title">&#8377;
 								{{ object.getPrice() - ((object.getPrice()*object.getDiscount()/100)) }}
 								<span style="font-size:15px;">
 									<span style="text-decoration:line-through;">
