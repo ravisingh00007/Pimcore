@@ -4,54 +4,77 @@ namespace App\Controller;
 
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject\Clothings;
+use Pimcore\Model\DataObject\Footwear;
+use Pimcore\Model\DataObject\Beauty;
+use Pimcore\Model\DataObject\Electronics;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\DataObject\Clothings\Listing;
 use Pimcore\Model\Asset\MetaData\ClassDefinition\Data\DataObject;
 use Pimcore\Model\DataObject\FeedClass;
-use App\Controller\EntityManagerInterface;
 
 class MyController extends FrontendController
 {
- 
+
+
 
     #[Route("/home" ,methods:["GET"] ,name:"homepage")]
-    public function Welcome(Request $request){
-       
-
-
+    public function welcomeAction(Request $request){
         return $this->render("default/home.html.twig");
     }
 
 
-
-
-
     #[Route("/footwear" ,methods:["GET"] ,name:"footwear")]
     public function footwear(Request $request){
-        return $this->render("default/footwear.html.twig");
+        $footwear = new Footwear\Listing();
+
+        // foreach($footwear->getCategory() as $foot){
+        //     $classificationStore = $foot->getCategory();
+        //     foreach ($classificationStore->getGroups() as $group) {
+        //         $categoryName = array(($group->getConfiguration()->getName()));
+        //     }
+        // }
+        //,['category'=>$categoryName]
+        return $this->render("default/footwear.html.twig", ['footwear'=> $footwear]);
     }
+
+    #[Route("/men" ,methods:["GET" ,"POST"] ,name:"men")]
+    public function menFootwear(Request $request){
+        $footwear = new Footwear\Listing();
+        $men = new Footwear();
+        $men = []; 
+        foreach ($footwear as $item){
+            if($item->getGender()=="Men"){
+                array_push($men,$item);
+            }else{
+                continue;
+            }
+        }
+        // $object = (object) $array;
+        dd($men);
+        return $this->render("default/footwear.html.twig", ['footwear'=>$men]);
+    }
+
+
 
 
     #[Route("/clothing" ,methods:["GET" ,"POST"] ,name:"clothing")]
     public function clothing(Request $request){
 
-        $allCloths = new Clothings\Listing();
-        
-
-        
-        return $this->render("default/clothing.html.twig" ,['object' => $allCloths]);
+        return $this->render("default/clothing.html.twig");
     }
     
-    #[Route("/beauty" ,methods:["GET","POST"] ,name:"beauty")]
+    #[Route("/beauty" ,methods:["GET"] ,name:"beauty")]
     public function beauty(Request $request){
-        return $this->render("default/beauty.html.twig");
+        $beauty = new Beauty\Listing();
+        return $this->render("default/beauty.html.twig", ['beauty'=> $beauty]);
     }
 
     #[Route("/electronic" ,methods:["GET"] ,name:"electronic")]
     public function electronic(Request $request){
-        return $this->render("default/electronic.html.twig");
+        $electronic = new Electronics\Listing();
+        return $this->render("default/electronic.html.twig", ['electronic'=> $electronic]);
     }
 
     #[Route("/feedback" ,methods:["GET"] ,name:"feedback")]
@@ -59,34 +82,31 @@ class MyController extends FrontendController
         return $this->render("default/feedback.html.twig");
     }
     
-    #[Route("/handleFeedback" , methods:["POST"], name:"HandleFeedback")]
+    #[Route("/handleFeedback" , methods:["POST","GET"], name:"HandleFeedback")]
     public function handleFeed(Request $request){
-        $name = $request->getContent().['name'];
-        $email = $request->getContent().['email'];
-        $address = $request->getContent().['address'];
-        $suggestion = $request->getContent().[];
        
-        // $data = json_decode($request->getContent(), true);
-        // $name = $data['name'];
-        // $email = $data['email'];
-        // $address = $data['address'];
-        // $suggestion = $data['suggestion'];
+        $data = json_decode($request->getContent(), true);
+        $name = $data['name'];
+        $email = $data['email'];
+        $address = $data['address'];
+        $suggestion = $data['suggestion'];
 
-        $object = new FeedClass();
-        $object->setKey($name);
-        $object ->setParentId(42);
-
-        $object->setName($name);
-        $object->setEmail($email);
-        $object->setAddress($address);
-        $object->setSuggestion($suggestion);
-        $object->setPublished(true);
-
-        $object->save();
+       foreach ($classificationStore->getGroups() as $group) {
+             $categoryName = array(($group->getConfiguration()->getName()));
     
-        return $this->json(['status' => 'object added!']);
+    // foreach ($group->getKeys() as $key) {
+    //     $keyConfiguration = $key->getConfiguration();
 
+    //     $value = $key->getValue();
+    //     if ($value instanceof \Pimcore\Model\DataObject\Data\QuantityValue) {
+    //         $value = (string)$value;
+    //     }
+    //     dump([
+    //         $value,
+    //         ($key->getFieldDefinition() instanceof QuantityValue),
+    //     ]);
+        }
+          // dd( 'here');
+        return $this->render("default/home.html.twig",['category'=>$categoryName]);
     }
-
-
 }

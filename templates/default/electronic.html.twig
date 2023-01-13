@@ -1,5 +1,51 @@
 {% include "default/header.html.twig" %}
 
+<div class="container my-5">
+	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">​​​​
+		{% for object in electronic %}
+			<div class="col">
+				<div class="card p-2" style="width: 25rem; height:30rem;">
+                    <img src= "{{ object.getImage() }}" class= "card-img-top" style="height:20rem;"> 
+					<center>
+						<div class="card-body">
+                            <h5 class="card-title">
+								{% if object.getSelectcategory()=='AudioBrand' %}
+									<p class="card-text">
+										{{ object.getSelectBrand().getAudioBrand().getBrand}}
+										{{ object.getDescription() }}
+									</p>
+								{% elseif object.getSelectCategory()=='LaptopBrand' %}
+                                    <p class="card-text">
+										{{ object.getSelectBrand().getLaptopBrand().getBrand() }}
+										{{ object.getDescription() }}
+									</p>
+								{% elseif object.getSelectCategory()=='MobileBrand' %}
+                                    <p class="card-text">
+										{{ object.getSelectBrand().getMobileBrand().getBrand() }}
+										{{ object.getDescription() }}
+									</p>
+								{% endif %}
+							</h5>
+                            <h5 class="card-title">&#8377;
+								{{ object.getPrice() - ((object.getPrice()*object.getDiscount()/100)) }}
+								<span style="font-size:15px;">
+									<span style="text-decoration:line-through;">
+										{{ object.getPrice() }}
+									</span>
+									({{ object.getDiscount() }}% off)
+								</span>
+							</h5>
+							<button class="card-link btn btn-success" style="text-decoration:none;">Buy Now</button>
+							<button class="card-link btn btn-success" style="text-decoration:none;">Add To Cart</button>
+						</div>
+					</center>
+				</div>
+			</div>
+		{% endfor %}
+		​​​​​​​​
+	</div>
+</div>
+
 
 
 

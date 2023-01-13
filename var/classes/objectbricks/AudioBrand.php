@@ -7,11 +7,11 @@
 
 return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
    'dao' => NULL,
-   'key' => 'FootwearBrand',
+   'key' => 'AudioBrand',
    'parentClass' => '',
    'implementsInterfaces' => '',
    'title' => '',
-   'group' => 'Footwear',
+   'group' => 'Electronics',
    'layoutDefinitions' => 
   Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
      'name' => NULL,
@@ -66,55 +66,40 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
             array (
               0 => 
               array (
-                'key' => 'Bata',
-                'value' => 'Bata',
+                'key' => 'pTron',
+                'value' => 'pTron',
               ),
               1 => 
               array (
-                'key' => 'Red Tape',
-                'value' => 'Red Tape',
+                'key' => 'JBL',
+                'value' => 'JBL',
               ),
               2 => 
               array (
-                'key' => 'Mochi',
-                'value' => 'Mochi',
+                'key' => 'MI',
+                'value' => 'MI',
               ),
               3 => 
               array (
-                'key' => 'Puma',
-                'value' => 'Puma',
+                'key' => 'boAt',
+                'value' => 'boAt',
               ),
               4 => 
               array (
-                'key' => 'Adidas',
-                'value' => 'Adidas',
+                'key' => 'Sony',
+                'value' => 'Sony',
               ),
               5 => 
               array (
-                'key' => 'Nike',
-                'value' => 'Nike',
+                'key' => 'OnePlus',
+                'value' => 'OnePlus',
               ),
               6 => 
               array (
-                'key' => 'Reebok',
-                'value' => 'Reebok',
+                'key' => 'Infinity',
+                'value' => 'Infinity',
               ),
               7 => 
-              array (
-                'key' => 'Campus',
-                'value' => 'Campus',
-              ),
-              8 => 
-              array (
-                'key' => 'Asian',
-                'value' => 'Asian',
-              ),
-              9 => 
-              array (
-                'key' => 'Sparx',
-                'value' => 'Sparx',
-              ),
-              10 => 
               array (
                 'key' => '',
                 'value' => '',
@@ -160,8 +145,8 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
   array (
     0 => 
     array (
-      'classname' => 'Footwear',
-      'fieldname' => 'select',
+      'classname' => 'Electronics',
+      'fieldname' => 'selectBrand',
     ),
   ),
 ));
