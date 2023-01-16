@@ -17,7 +17,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'feedClass',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1673526767,
+   'modificationDate' => 1673867967,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',

@@ -6,7 +6,6 @@ use Pimcore\Controller\FrontendController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-<<<<<<<<< Temporary merge branch 1
 use App\Controller\DataObject\Clothings\Listing;
 use Pimcore\Model\Asset\MetaData\ClassDefinition\Data\DataObject;
 use Pimcore\Model\DataObject\Clothings;
@@ -17,8 +16,6 @@ use Pimcore\Model\DataObject\FeedClass;
 
 class MyController extends FrontendController
 {
-
-
 
     #[Route("/home" ,methods:["GET"] ,name:"homepage")]
     public function welcomeAction(Request $request){
@@ -219,7 +216,6 @@ class MyController extends FrontendController
 
 
 
-
     //Listing and filtering for electronic class
 
     #[Route("/electronic" ,methods:["GET"] ,name:"electronic")]
@@ -270,10 +266,14 @@ class MyController extends FrontendController
         return $this->render("default/electronic.html.twig", ['electronic'=>$items]);
     }
 
+    // feeback form route
+
     #[Route("/feedback" ,methods:["GET"] ,name:"feedback")]
     public function feedback(Request $request){
         return $this->render("default/feedback.html.twig");
     }
+    
+    // Route to handle feedback after submission
     
     #[Route("/handleFeedback" , methods:["POST","GET"], name:"HandleFeedback")]
     public function handleFeed(Request $request){
