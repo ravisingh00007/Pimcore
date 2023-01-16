@@ -1,7 +1,46 @@
 {% include "default/header.html.twig" %}
 
+<style>
+	.filterImg {
+		height: 300px;
+		width: 300px;
+		border-radius: 10%;
+		border: black 5px solid;
+		margin-top: 10px;
+		margin-bottom: 5px;
+	}
+</style>
+<div class="container d-flex  justify-content-sm-between">
+	<div>
+		<a href="/audio">
+			<img class="filterImg" src="https://m.media-amazon.com/images/G/31/img22/CEPC/Jan/Art/23/New/Launches/Revised/Halos/Unrec/speakers._CB617201397_.jpg" alt="">
+		</a>
+	</div>
+	<div>
+		<a href="/laptop">
+			<img class="filterImg" src="https://m.media-amazon.com/images/I/81zoyHn5uJL._AC_UL320_.jpg" alt="">
+		</a>
+	</div>
+	<div>
+		<a href="/mobiles">
+			<img class="filterImg" src="https://m.media-amazon.com/images/I/71V--WZVUIL._AC_UL320_.jpg" alt="">
+		</a>
+	</div>
+</div>
+<div class="container d-flex flex-row fs-4 ">
+	<div style="width:40%; text-align:center; padding-right: 10rem;">
+		Audio
+	</div>
+	<div style="width:40%; text-align:center;">
+	   Laptop
+	</div>
+	<div style="width:40%; text-align:center; padding-left: 10rem;">
+		Mobiles
+	</div>
+</div>
+
 <div class="container my-5">
-	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">​​​​
+	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">​​​​
 		{% for object in electronic %}
 			<div class="col">
 				<div class="card p-2" style="width: 25rem; height:30rem;">
@@ -9,17 +48,17 @@
 					<center>
 						<div class="card-body">
                             <h5 class="card-title">
-								{% if object.getSelectcategory()=='AudioBrand' %}
+								{% if object.getSelectcategory()=='Audio' %}
 									<p class="card-text">
 										{{ object.getSelectBrand().getAudioBrand().getBrand}}
 										{{ object.getDescription() }}
 									</p>
-								{% elseif object.getSelectCategory()=='LaptopBrand' %}
+								{% elseif object.getSelectCategory()=='Laptop' %}
                                     <p class="card-text">
 										{{ object.getSelectBrand().getLaptopBrand().getBrand() }}
 										{{ object.getDescription() }}
 									</p>
-								{% elseif object.getSelectCategory()=='MobileBrand' %}
+								{% elseif object.getSelectCategory()=='Mobiles' %}
                                     <p class="card-text">
 										{{ object.getSelectBrand().getMobileBrand().getBrand() }}
 										{{ object.getDescription() }}

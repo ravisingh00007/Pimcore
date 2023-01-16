@@ -1,5 +1,52 @@
 {% include "default/header.html.twig" %}
 
+<style>
+	.filterImg {
+		height: 300px;
+		width: 300px;
+		border-radius: 20%;
+	}
+</style>
+<div class="container d-flex  justify-content-sm-between">
+	<div>
+		<a href="/skincare">
+			<img class="filterImg" src="https://m.media-amazon.com/images/G/31/img22/Beauty/aman/janart/halo-2._SS300_QL85_.png" alt="">
+		</a>
+	</div>
+	<div>
+		<a href="/haircare">
+			<img class="filterImg" src="https://m.media-amazon.com/images/G/31/img22/Beauty/aman/janart/halo-3._SS300_QL85_.png" alt="">
+		</a>
+	</div>
+	<div>
+		<a href="/makeup">
+			<img class="filterImg" src="https://m.media-amazon.com/images/G/31/img22/Beauty/aman/janart/halo-1._SS300_QL85_.png" alt="">
+		</a>
+	</div>
+	<div>
+		<a href="/fragnance">
+			<img class="filterImg" src="https://m.media-amazon.com/images/G/31/img22/Beauty/aman/janart/halo-9._SS300_QL85_.png" alt="">
+		</a>
+	</div>
+</div>
+<div class="container d-flex flex-row ">
+	<div style="width:40%; text-align:center; ">
+		Skin Care
+	</div>
+	<div style="width:40%; text-align:center; ">
+		Hair care
+	</div>
+	<div style="width:40%; text-align:center; padding-left: 2rem;">
+		Make Up
+	</div>
+	<div style="width:40%; text-align:center; padding-left: 2rem;">
+		Fragnance
+	</div>
+</div>
+
+
+
+
 <div class="container my-5">
 	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">​​​​
 		{% for object in beauty %}

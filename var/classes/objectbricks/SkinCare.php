@@ -335,6 +335,11 @@ return Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
                     'key' => 'Glamour World',
                     'value' => 'Glamour World',
                   ),
+                  6 => 
+                  array (
+                    'key' => 'Neutrogena',
+                    'value' => 'Neutrogen',
+                  ),
                 ),
                  'width' => '',
                  'defaultValue' => '',
