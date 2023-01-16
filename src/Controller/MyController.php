@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use Pimcore\Controller\FrontendController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\DataObject\Clothings\Listing;
 use Pimcore\Model\Asset\MetaData\ClassDefinition\Data\DataObject;
@@ -103,21 +102,8 @@ class MyController extends FrontendController
     
     #[Route("/clothing" ,methods:["GET"] ,name:"clothing")]
     public function clothing(Request $request){
-        $clothing = new Clothings\Listing();
-        return $this->render("default/clothing.html.twig", ['clothing'=> $clothing]);
-    }
-    // Route to filter men items
 
-    #[Route("/menclothing" ,methods:["GET" ,"POST"] ,name:"menclothing")]
-    public function menClothing(Request $request){
-        $clothing = new Clothings\Listing();
-        $menitems = []; 
-        foreach ($clothing as $item){
-            if ($item->getLookingFor()=="Men"){
-                array_push($menitems,$item);
-            }
-        }
-        return $this->render("default/clothing.html.twig", ['clothing'=>$menitems]);
+        return $this->render("default/clothing.html.twig");
     }
     
     // Route to filter women items
@@ -270,36 +256,45 @@ class MyController extends FrontendController
 
     #[Route("/feedback" ,methods:["GET"] ,name:"feedback")]
     public function feedback(Request $request){
-        return $this->render("default/feedback.html.twig");
+        $flag = false;
+        return $this->render("default/feedback.html.twig" ,['alert'=>$flag]);
     }
     
     // Route to handle feedback after submission
     
-    #[Route("/handleFeedback" , methods:["POST","GET"], name:"HandleFeedback")]
+    #[Route("/handleFeedback" , methods:["POST"], name:"HandleFeedback")]
     public function handleFeed(Request $request){
-       
-        $data = json_decode($request->getContent(), true);
-        $name = $data['name'];
-        $email = $data['email'];
-        $address = $data['address'];
-        $suggestion = $data['suggestion'];
+        // $data = json_decode($request->getContent(), true);
+        $flag = false ;
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
+        $suggestion = $_POST['suggestion'];
 
-       foreach ($classificationStore->getGroups() as $group) {
-             $categoryName = array(($group->getConfiguration()->getName()));
-    
-    // foreach ($group->getKeys() as $key) {
-    //     $keyConfiguration = $key->getConfiguration();
+        $object = new FeedClass();
+        $object ->setKey($name);
+        $object ->setParentId(42);
 
-    //     $value = $key->getValue();
-    //     if ($value instanceof \Pimcore\Model\DataObject\Data\QuantityValue) {
-    //         $value = (string)$value;
-    //     }
-    //     dump([
-    //         $value,
-    //         ($key->getFieldDefinition() instanceof QuantityValue),
-    //     ]);
-        }
-          // dd( 'here');
-        return $this->render("default/home.html.twig",['category'=>$categoryName]);
-    }
+        $object ->setName($name);
+        $object ->setEmail($email);
+        $object ->setAddress($address);
+        $object ->setSuggestion($suggestion);
+        $object ->setPublished(true);
+
+         
+         $mail=new \Pimcore\Mail();
+         $mail->to('ravi@gmail.com');
+         $mail->text("this is document");
+         $mail->send();
+         $object->save();
+
+         if($object->save()){
+            $flag=true;
+         }
+         
+         return $this->render("default/feedback.html.twig"  , ['alert'=>$flag]);
+     }
+
+
+         
 }
