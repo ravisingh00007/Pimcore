@@ -6,6 +6,8 @@ use Pimcore\Controller\FrontendController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+<<<<<<<<< Temporary merge branch 1
+use App\Controller\DataObject\Clothings\Listing;
 use Pimcore\Model\Asset\MetaData\ClassDefinition\Data\DataObject;
 use Pimcore\Model\DataObject\Clothings;
 use Pimcore\Model\DataObject\Footwear;
