@@ -1,0 +1,56 @@
+services:
+    assets_s3:
+        class: 'Aws\S3\S3Client'
+        arguments:
+            -  endpoint: 'https://s3.eu-central-1.amazonaws.com'
+               region: 'eu-central-1'
+               version: 'latest'
+               credentials:
+                   key: '%env(S3_STORAGE_KEY)%'
+                   secret: '%env(S3_STORAGE_SECRET)%'
+
+flysystem:
+    storages:
+        pimcore.asset.storage:
+            adapter: 'aws'
+            visibility: public
+            options:
+                client: 'assets_s3'
+                bucket: 'bucket-name'
+                prefix: assets
+
+
+flysystem:
+    storages:
+        pimcore.asset.storage.source:
+            adapter: 'local'
+            visibility: public
+            options:
+                directory: '%kernel.project_dir%/public/var/assets'
+
+        pimcore.asset.storage.target:
+            adapter: 'aws'
+            visibility: public
+            options:
+                client: 'assets_s3'
+                bucket: 'bucket-name'
+                prefix: asset
+
+        pimcore.thumbnail.storage.source:
+            adapter: 'local'
+            visibility: public
+            options:
+                directory: '%kernel.project_dir%/public/var/tmp/thumbnails'
+                permissions:
+                    file:
+                        private: 0644
+                    dir:
+                        private: 0755
+
+        pimcore.thumbnail.storage.target:
+            adapter: 'aws'
+            visibility: public
+            options:
+                client: 'assets_s3'
+                bucket: 'bucket-name'
+                prefix: thumbnail

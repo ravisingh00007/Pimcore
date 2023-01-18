@@ -7,7 +7,6 @@
  * Fields Summary:
  * - sku [input]
  * - sellerName [input]
- * - address [fieldcollections]
  * - detailed_address [textarea]
  * - bestSellerRank [input]
  * - customerReviews [slider]
@@ -19,7 +18,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Seller',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1672904976,
+   'modificationDate' => 1673870009,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -130,38 +129,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'defaultValueGenerator' => '',
           )),
           2 => 
-          Pimcore\Model\DataObject\ClassDefinition\Data\Fieldcollections::__set_state(array(
-             'name' => 'address',
-             'title' => 'Address',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'datatype' => 'data',
-             'fieldtype' => 'fieldcollections',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'allowedTypes' => 
-            array (
-              0 => 'Address',
-            ),
-             'lazyLoading' => false,
-             'maxItems' => NULL,
-             'disallowAddRemove' => false,
-             'disallowReorder' => false,
-             'collapsed' => false,
-             'collapsible' => false,
-             'border' => false,
-          )),
-          3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
              'name' => 'detailed_address',
              'title' => 'Detailed _address',
@@ -187,7 +154,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'showCharCount' => false,
              'excludeFromSearchIndex' => false,
           )),
-          4 => 
+          3 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
              'name' => 'bestSellerRank',
              'title' => 'Best Seller Rank',
@@ -218,7 +185,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
              'showCharCount' => false,
              'defaultValueGenerator' => '',
           )),
-          5 => 
+          4 => 
           Pimcore\Model\DataObject\ClassDefinition\Data\Slider::__set_state(array(
              'name' => 'customerReviews',
              'title' => 'Customer Reviews',
@@ -305,6 +272,38 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'enableGridLocking' => false,
    'deletedDataComponents' => 
   array (
+    0 => 
+    Pimcore\Model\DataObject\ClassDefinition\Data\Fieldcollections::__set_state(array(
+       'name' => 'address',
+       'title' => 'Address',
+       'tooltip' => '',
+       'mandatory' => false,
+       'noteditable' => false,
+       'index' => false,
+       'locked' => false,
+       'style' => '',
+       'permissions' => NULL,
+       'datatype' => 'data',
+       'fieldtype' => 'fieldcollections',
+       'relationType' => false,
+       'invisible' => false,
+       'visibleGridView' => false,
+       'visibleSearch' => false,
+       'blockedVarsForExport' => 
+      array (
+      ),
+       'allowedTypes' => 
+      array (
+        0 => 'Address',
+      ),
+       'lazyLoading' => false,
+       'maxItems' => NULL,
+       'disallowAddRemove' => false,
+       'disallowReorder' => false,
+       'collapsed' => false,
+       'collapsible' => false,
+       'border' => false,
+    )),
   ),
    'blockedVarsForExport' => 
   array (

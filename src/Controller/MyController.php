@@ -15,28 +15,13 @@ use Pimcore\Model\DataObject\FeedClass;
 
 class MyController extends FrontendController
 {
-
+    
+    //Route for home page
+    
     #[Route("/home" ,methods:["GET"] ,name:"homepage")]
     public function welcomeAction(Request $request){
         return $this->render("default/home.html.twig");
     }
-
-//     /**
-//      * @param Request $request
-//      * @return Response
-//      */
-//     public function testAction( Request $request, \Knp\Component\Pager\PaginatorInterface $paginator)
-// {
-//     $list = new Clothings\Listing();
-//     $list->setOrderKey("price");
-//     $list->setOrder("asc");
- 
-//     $paginator = $paginator->paginate($list, $request->get('page', 1), 6 );
-
-//     return $this->render('default/clothing.html.twig', ['paginator' => $paginator,'paginationVariables' => $paginator->getPaginationData()]);
-// }
-        
-
 
     // Listing and filtering for footwear Class
 
@@ -102,9 +87,24 @@ class MyController extends FrontendController
     
     #[Route("/clothing" ,methods:["GET"] ,name:"clothing")]
     public function clothing(Request $request){
-
-        return $this->render("default/clothing.html.twig");
+        $clothing = new Clothings\Listing();
+        return $this->render("default/clothing.html.twig", ['clothing'=>$clothing]);
     }
+
+    // Route to filter women items
+
+    #[Route("/menclothing" ,methods:["GET" ,"POST"] ,name:"menclothing")]
+    public function menClothing(Request $request){
+        $clothing = new Clothings\Listing();
+        $men = []; 
+        foreach ($clothing as $item){
+            if ($item->getLookingFor()=="Men"){
+                array_push($men,$item);
+            }
+        }
+        return $this->render("default/clothing.html.twig", ['clothing'=>$men]);
+    }
+
     
     // Route to filter women items
 
@@ -172,7 +172,7 @@ class MyController extends FrontendController
          return $this->render("default/beauty.html.twig", ['beauty'=>$items]);
      }
     
-    // Route to filter haircare items
+    // Route to filter makeup items
 
     #[Route("/makeup" ,methods:["GET" ,"POST"] ,name:"makeup")]
     public function bodyCare(Request $request){
@@ -186,7 +186,7 @@ class MyController extends FrontendController
         return $this->render("default/beauty.html.twig", ['beauty'=>$items]);
     }
 
-    // Route to filter haircare items
+    // Route to filter fragnance items
 
     #[Route("/fragnance" ,methods:["GET" ,"POST"] ,name:"fragnance")]
     public function fragnance(Request $request){
@@ -224,7 +224,7 @@ class MyController extends FrontendController
         return $this->render("default/electronic.html.twig", ['electronic'=>$items]);
     }
     
-    // Route to filter audio items
+    // Route to filter laptop items
 
     #[Route("/laptop" ,methods:["GET" ,"POST"] ,name:"laptop")]
     public function laptop(Request $request){
@@ -238,7 +238,7 @@ class MyController extends FrontendController
         return $this->render("default/electronic.html.twig", ['electronic'=>$items]);
     }
     
-    // Route to filter audio items
+    // Route to filter mobiles items
 
     #[Route("/mobiles" ,methods:["GET" ,"POST"] ,name:"mobiles")]
     public function mobiles(Request $request){
@@ -273,7 +273,7 @@ class MyController extends FrontendController
 
         $object = new FeedClass();
         $object ->setKey($name);
-        $object ->setParentId(42);
+        $object ->setParentId(91);
 
         $object ->setName($name);
         $object ->setEmail($email);

@@ -12,6 +12,8 @@
  * - discount [slider]
  * - description [input]
  * - seller [manyToOneRelation]
+ * - manufactureDate [date]
+ * - expiryDate [date]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -20,7 +22,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'Beauty',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1673718174,
+   'modificationDate' => 1673964866,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -344,6 +346,58 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'documentTypes' => 
                 array (
                 ),
+              )),
+              4 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Date::__set_state(array(
+                 'name' => 'manufactureDate',
+                 'title' => 'Manufacture Date',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'fieldtype' => 'date',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'queryColumnType' => 'bigint(20)',
+                 'columnType' => 'bigint(20)',
+                 'defaultValue' => NULL,
+                 'useCurrentDate' => false,
+                 'defaultValueGenerator' => '',
+              )),
+              5 => 
+              Pimcore\Model\DataObject\ClassDefinition\Data\Date::__set_state(array(
+                 'name' => 'expiryDate',
+                 'title' => 'Expiry Date',
+                 'tooltip' => '',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'datatype' => 'data',
+                 'fieldtype' => 'date',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'queryColumnType' => 'bigint(20)',
+                 'columnType' => 'bigint(20)',
+                 'defaultValue' => NULL,
+                 'useCurrentDate' => false,
+                 'defaultValueGenerator' => '',
               )),
             ),
              'locked' => false,
