@@ -1,25 +1,127 @@
-{% include "default/header.html.twig" %}
+{% extends "default/app.html.twig" %}
 
-<div class="container my-5">
-	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-2">
-		{% for cloth in object %}
+{% block SEO %}{% endblock %}
+
+
+{% block CONTENT_MID %}
+	<div class="container m-5 d-flex">
+		<div class="justify-content-end">
+			<label for="perPage" class="form-label">Per Page</label>
+			<select name="perPage" id="perPage" class="form-select">
+
+				<option value="">5</option>
+				<option value="">10</option>
+				<option value="">20</option>
+
+			</select>
+		</div>
+
+	</div>
+	<div class="container m-5">
+
+		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
 			<div class="col">
-				<div class="card p-2" style="width: 20rem;">
-					<img src="{{cloth.getImage()}} " class="card-img-top" style="height:302px;weight: 302px;">
-                    <center>
-					<div class="card-body">
-						<h5 class="card-title">{{cloth.getBrand().getBrand().getBrand()}}</h5>
-                        <p>{{cloth.getDescription()}}</p>
-                        <h5 class="card-title"> &#8377;{{cloth.getPrice() - ((cloth.getPrice()*cloth.getDiscount())/100)}} <span style="font-size:15px;"><span style="text-decoration:line-through;">{{cloth.getPrice()}}</span> ({{cloth.getDiscount()}}% off )</span></h5> 
-					
-					
-						<button class="card-link btn btn-success" style="text-decoration:none;">Buy Now</button>
-                        <button class="card-link btn btn-success" style="text-decoration:none;">Add To Cart</button>
-					</div>
-                    </center>
-				</div>
+				<form class="blog-search-form">
+					<input type="hidden" name="perPage" value="" class="blog-per-page-hidden">
+					<fieldset>
+
+						<legend>Filters</legend>
+
+						<div class="ab-3">
+
+							<label for="sealch" class="form-label">Search Cloths</label>
+							<input type="text" id="search" class="form-control" placeholder="Search Cloths">
+
+						</div>
+
+						<div class="mb-3">
+
+							<label for="categories" class="form-label">Shop By Brand</label>
+
+							<select
+								id "categories" class="form-select categories-select" name="brandSearch[]">
+
+								{# {% for cloth.getBrand().getBrand().getBrand() in items %}
+																
+																								
+								{% endfor %} #}
+
+								<option>Category 1</option>
+
+								<option>Category 2</option>
+
+								<option>Category 3</option>>
+
+							</select>
+
+						</div>
+
+						<button type="submit" class="btn btn-primary">Search</button>
+
+					</fieldset>
+
+				</form>
 			</div>
-            {% endfor %}
-		</div>	
-</div>
-{% include "default/footer.html.twig" %}
+			{% for cloth in object %}
+				<div class="col mx-4">
+					<div class="card p-2" style="width: 20rem;">
+						<img src="{{cloth.getImage()}} " class="card-img-top" style="height:302px;weight: 302px;">
+						<center>
+							<div class="card-body">
+								<h5 class="card-title">{{cloth.getBrand().getBrand().getBrand()}}</h5>
+								<p>{{cloth.getDescription()}}</p>
+								<h5 class="card-title">
+									&#8377;{{cloth.getPrice() - ((cloth.getPrice()*cloth.getDiscount())/100)}}
+									<span style="font-size:15px;">
+										<span style="text-decoration:line-through;">{{cloth.getPrice()}}</span>
+										({{cloth.getDiscount()}}% off )</span>
+								</h5>
+
+
+								<button class="card-link btn btn-success" style="text-decoration:none;">Buy Now</button>
+								<button class="card-link btn btn-success" style="text-decoration:none;">Add To Cart</button>
+							</div>
+						</center>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="container m-4 d-flex justify-content-center">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination">
+					<li class="page-item disabled">
+						<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">1</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">2</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link" href="#">3</a>
+					</li>
+					<li class="page-item">
+						<a class="page-link man" href="#">Next</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+{% endblock %}
+
+{% block PAGE_JS %}
+
+	<script type="text/javascript">
+	
+
+	  document.on('change', '.blog-per-page',function(){
+
+    if(this.classList.contains("blog-per-page")){
+        document.getElementByClassName("blog-per-page-hidden").val(this.value);
+    }
+
+    document.getElementByClassName("blog-search-form").submit();
+   });
+	</script>
+{% endblock %}

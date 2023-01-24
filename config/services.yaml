@@ -1,5 +1,6 @@
 parameters:
     secret: sUCiw+iuf5A1mt+Vfe0fCnrcbn/Gftf0IUy3apAqDps=
+    site_protocol: '%env(SITE_PROTOCOL)%'
 
     # customize the full path to external executables
     # normally they are auto-detected by `which program` or auto-discovered in the configured path in
@@ -31,6 +32,9 @@ parameters:
 
 services:
     # default configuration for services in *this* file
+   
+    AppBundle\EventListener\JqueryAdminListener: ~
+
     _defaults:
         # automatically injects dependencies in your services
         autowire: true
@@ -58,8 +62,23 @@ services:
     App\Command\:
         resource: '../src/Command/*'
         tags: [ 'console.command' ]
+   
 
+    #
+    # REPOSITORIES
+    #
 
+    #auto-register the all repository as services
+    App\Repository\:
+        resource: '../src/Repository/*'
+    
+    
+    # 
+    # Link Generators
+    #
+
+    App\Website\LinkGenerator\ClothingLinkGenerator:
+        public: true
 
     # Example custom templating helper
     # App\Templating\Helper\Example:
